@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import dao.Dao;
-import dao.DaoDummy;
 import entidade.Pato;
 import view.View;
 
@@ -20,7 +19,7 @@ public class Controller {
 		Opcoes opcao = null;
 		
 		List<Pato> patos;
-		while(opcao != Opcoes.SAIR) {
+		do {
 			opcao = pegaOpcao();
 			switch (opcao) {
 			case MOSTRAR_PATOS: 
@@ -38,7 +37,7 @@ public class Controller {
 			default:
 				throw new IllegalArgumentException("Unexpected value: " + opcao);
 			}
-		}
+		} while(opcao != Opcoes.SAIR); 
 	}
 	
 	Opcoes pegaOpcao() {
